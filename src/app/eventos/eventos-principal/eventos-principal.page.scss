@@ -1,0 +1,36 @@
+ion-toolbar{
+  background-color: var(--ion-color-mycolor);
+}
+strong{
+  color: rgb(107, 107, 107);
+  font-size: 15px;
+}
+.header{
+  margin-top: 30px;
+  margin-left: 20px;
+}
+ion-icon{
+  margin-left: 8px;
+}
+b{
+  font-size: 25px;
+}
+ion-card{
+  border-radius: 1%;
+}
+#contenedor{
+  max-width: 80%;
+  margin: 2em auto;
+}
+#contenedor .titulo{
+  text-align: center;
+  float: left;
+  width: 33%;
+}
+#contenedor .subtitulo{
+  text-decoration: underline;
+}
+ion-icon{
+  margin: auto;
+}
+

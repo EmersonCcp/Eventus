@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start" >
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Registro de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title color="dark">Por favor ingrese sus datos personales</ion-card-title>
+  </ion-card-header>
+  <form #formulario="ngForm" (ngSubmit)="registrar()">
+    <!--ENTRADAS DE DATOS (CORREO Y CONTRASEÑA)-->
+    <ion-list>
+      <ion-item lines="full">
+      <ion-label position="floating" color="medium">Nombre</ion-label>
+      <ion-input type="text" required name="nombre"
+       ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating" color="medium">Apellido</ion-label>
+      <ion-input type="text" required name="apellido"
+       ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating" color="medium">Correo electronico</ion-label>
+      <ion-input type="email" required name="correo" pattern="^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$)"
+       ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating" color="medium">Contraseña</ion-label>
+      <ion-input type="password" required name="pass"
+       ></ion-input>
+    </ion-item>
+    <ion-item lines="full" >
+      <ion-label position="floating" color="medium">Confirmar contraseña</ion-label>
+      <ion-input type="password" required name="passConf"
+       ></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-input type="date" required name="nombre" color="dark"
+       ></ion-input>
+    </ion-item>
+<!--BOTON PARA INICIAR SESION-->
+    <ion-row>
+      <ion-col>
+        <ion-button class="boton" type="submit" color="mycolor" expand="block">Registrar-me</ion-button>
+      </ion-col>
+    </ion-row>
+    </ion-list>
+  </form>
+</ion-card>
+</ion-content>

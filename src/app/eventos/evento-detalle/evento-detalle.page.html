@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/eventos-principal"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="share-social"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="heart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-img src="assets/img/eventos/djpv.jpg"></ion-img>
+
+  <!--PERFIL DE USUARIO-->
+
+
+    <!--PERFIL DE USUARIO-->
+
+  <ion-card-title>
+    DJ PV ft PRETO NO BRANCO (INTENSAMENTE)
+  </ion-card-title>
+  <div >
+  <ion-list>
+    <!--HORARIO Y CALENDARIO-->
+    <ion-item>
+      <ion-icon name="calendar" style="margin: 0px 10px;"></ion-icon>
+      <div id="contenedor">
+        <div  class="titulo">
+        <ion-label style="font-size: 10px;">viernes, marzo 11</ion-label>
+      </div>
+      <div class="subtitulo">
+        <ion-label  style="font-size: 10px;" color="medium">08:30 -11:30 GMT-03:00</ion-label>
+      </div>
+      </div>
+    </ion-item>
+
+  <!--LOCALIZACION-->
+  <ion-item >
+      <ion-icon name="location" style="margin: 0px 10px;" ></ion-icon>
+    <div id="contenedor">
+      <div  class="titulo">
+      <ion-label style="font-size: 10px;">Rio de Janeiro</ion-label>
+    </div>
+    <div class="subtitulo">
+      <ion-label  style="font-size: 10px;" color="medium">3264 Avenida Atlantica #5 andar, 22070-001</ion-label>
+    </div>
+    </div>
+  </ion-item>
+  <!--ENTRADAS-->
+  <ion-item>
+    <ion-icon name="ticket" style="margin: 0px 10px;"></ion-icon>
+    <div id="contenedor">
+      <div  class="titulo">
+      <ion-label style="font-size: 10px;">Entradas</ion-label>
+    </div>
+    <div class="subtitulo">
+      <ion-label  style="font-size: 10px;" color="medium">Mas info</ion-label>
+    </div>
+    </div>
+  </ion-item>
+</ion-list>
+  <!--STAFF-->
+  <ion-item >
+    <ion-button color="warning" expand="block" [routerLink]="['/staff']">
+      Ver Staff
+    </ion-button>
+  </ion-item>
+</div>
+
+</ion-content>

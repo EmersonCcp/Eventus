@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Bienvenido a Eventus!</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!--CONTENIDO PRINCIPAL-->
+<ion-content color="light" >
+  <ion-item>
+    <ion-chip color="danger" outline="true" >
+      <ion-label >Jóvenes</ion-label>
+    </ion-chip>
+    <ion-chip color="success" outline="true">
+      <ion-label >Religión</ion-label>
+    </ion-chip>
+    <ion-chip color="warning" outline="true">
+      <ion-label >Entretenimiento</ion-label>
+    </ion-chip>
+  </ion-item>
+  <!--ION CARD PRINCIPAL-->
+  <ion-card  color="dark" [routerLink]="['/eventos-principal']">
+            <ion-img src="assets/img/eventos/barak.jpg"></ion-img>
+      <ion-card-content >
+       <ion-title>Grupo Barak</ion-title>
+      </ion-card-content>
+    </ion-card>
+    <!--EL GRID-->
+    <ion-grid >
+      <ion-row >
+        <ion-col size="9">
+         <div class="texto"><h6>Conciertos</h6></div>
+        </ion-col>
+        <ion-col  >
+          <div class="texto"><h6>Marchas</h6></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="7">
+          <div class="texto"><h6>Fiestas</h6></div>
+        </ion-col>
+        <ion-col >
+          <div class="texto"><h6>Eventos Online</h6></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+<!--ION CARD FINAL-->
+<ion-card color="warning">
+   <ion-button expand="block" color="primary" [routerLink]="['/registro']">Registrar-me</ion-button>
+   <ion-title color="dark">o</ion-title>
+   <ion-title color="dark">Ya eres un usuario?</ion-title>
+   <ion-button [routerLink]="['/inicio-sesion']" expand="block" color="danger">Iniciar Sesion</ion-button>
+</ion-card>
+</ion-content>

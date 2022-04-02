@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Miembros del Staff</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label>
+      Organizadores
+    </ion-label>
+  </ion-item-divider>
+  <ion-list *ngFor="let staff of staffs">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="{{staff.foto}}" />
+        </ion-avatar>
+
+        <ion-label>
+          <h2>{{staff.nombre}} {{staff.apellido}}</h2>
+          <h3>{{staff.cargo}}</h3>
+          <p>{{staff.descripcion}}</p>
+        </ion-label>
+        <ion-button color="success">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </ion-button>
+      </ion-item>
+  </ion-list>
+</ion-content>

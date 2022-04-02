@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start" >
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-avatar >
+    <img  src="assets\img\perfil\perfil.jpg">
+  </ion-avatar>
+  <form style="margin-top: 50px;">
+
+      <ion-item lines="full">
+        <ion-label position="stacked"  color="dark">Nombre</ion-label>
+        <ion-input type="text" placeholder="Emerson Gabriel"></ion-input>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label position="stacked" color="dark">Apellido</ion-label>
+        <ion-input type="text" placeholder="Paixao Nuñez"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="dark">Fecha de nacimiento</ion-label>
+        <ion-input type="text" placeholder="06/08/2000" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="dark">Telefono</ion-label>
+        <ion-input type="text" placeholder="0993266769"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" color="dark">Correo electronico</ion-label>
+        <ion-input type="email" placeholder="emerson.paixao52@gmail.com"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button color="mycolor" expand="block">Ajustes</ion-button>
+        </ion-col>
+      </ion-row>
+
+  </form>
+
+</ion-content>

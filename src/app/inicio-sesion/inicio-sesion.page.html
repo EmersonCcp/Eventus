@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start" >
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Inicio de Sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--FORMULARIO PARA INICIO DE SESION-->
+<ion-card>
+  <ion-img class="logo" src="assets/img/logo.jpg" ></ion-img>
+  <form #formulario="ngForm" (ngSubmit)="verificarDatos()">
+    <!--ENTRADAS DE DATOS (CORREO Y CONTRASEÑA)-->
+    <ion-list>
+      <ion-item lines="full">
+      <ion-label position="floating" color="medium">Correo Electronico</ion-label>
+      <ion-input type="email" required name="correo"
+      pattern="^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$)" [(ngModel)]="usuario.correo"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating" color="medium">Contraseña</ion-label>
+      <ion-input type="password" required [(ngModel)]="usuario.password" name="password" ></ion-input>
+    </ion-item>
+<!--BOTON PARA INICIAR SESION-->
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="mycolor" expand="block">Iniciar Sesion</ion-button>
+      </ion-col>
+    </ion-row>
+    </ion-list>
+    <ion-card-subtitle [routerLink]="['/recuperar-pass']" color="primary" class="sub">Olvidé mi contraseña</ion-card-subtitle>
+  </form>
+</ion-card>
+</ion-content>
