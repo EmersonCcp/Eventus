@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Editar Organizador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<form [formGroup]="updateOrganizadorForm" (ngSubmit)="updateForm()">
+        <ion-item >
+          <ion-label position="floating">Nombre y Apellido</ion-label>
+          <ion-input type="text" formControlName="org_nombre" value="{{this.orgnombre}}"></ion-input>
+
+          <ion-label position="floating">Cargo</ion-label>
+          <ion-input type="text" formControlName="org_cargo" value="{{this.orgcargo}}" ></ion-input>
+
+          <ion-label position="floating">Descripcion</ion-label>
+          <ion-input type="text" formControlName="org_descripcion" value="{{this.orgdescripcion}}" ></ion-input>
+
+          <ion-label position="floating">Foto</ion-label>
+          <ion-input type="text" formControlName="org_foto"   value="{{this.orgfoto}}"></ion-input>
+
+        </ion-item>
+        <ion-button type="submit">Actualizar</ion-button>
+
+</form>
+
+
+
+
+
+</ion-content>

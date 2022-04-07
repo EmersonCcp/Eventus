@@ -11,8 +11,10 @@ export class AppComponent {
     { title: 'Ingresar', url: 'inicio-sesion', icon: 'person-circle' },
     { title: 'Registro', url: 'registro', icon:'person-add', },
     { title: 'Mi perfil', url: 'perfil', icon: 'person-circle' },
-    { title: 'Configuración', url: '/folder/Archived', icon: 'construct' }
+    { title: 'Organizadores', url: 'organizadores', icon: 'people' },
+    { title: 'Mis eventos', url: 'mis-eventos', icon: 'storefront' },
+    { title: 'Configuración', url: '', icon: 'construct' }
   ];
-  //public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
+
   constructor() {}
 }

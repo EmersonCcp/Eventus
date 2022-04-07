@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Registro } from '../interfaces/usuario.interface';
-import {ServicesComponentService} from '../services/services-component.service';
-
 
 @Component({
   selector: 'app-home',

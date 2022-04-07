@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServicesComponentService } from 'src/app/services/services-component.service';
+
 
 @Component({
   selector: 'app-buscar-eventos',
@@ -8,7 +8,7 @@ import { ServicesComponentService } from 'src/app/services/services-component.se
 })
 export class BuscarEventosPage implements OnInit {
 
-  constructor(eventosSecundarios: ServicesComponentService) { }
+  constructor() { }
 
   ngOnInit() {
   }

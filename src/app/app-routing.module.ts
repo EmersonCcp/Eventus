@@ -50,6 +50,26 @@ const routes: Routes = [
   {
     path: 'crear-evento',
     loadChildren: () => import('./abmEventos/crear-evento/crear-evento.module').then( m => m.CrearEventoPageModule)
+  },
+  {
+    path: 'presentacion',
+    loadChildren: () => import('./presentacion/presentacion.module').then( m => m.PresentacionPageModule)
+  },
+  {
+    path: 'mis-eventos',
+    loadChildren: () => import('./mis-eventos/mis-eventos.module').then( m => m.MisEventosPageModule)
+  },
+  {
+    path: 'organizadores',
+    loadChildren: () => import('./organizadores/organizadores.module').then( m => m.OrganizadoresPageModule)
+  },
+  {
+    path: 'organizadores/crear',
+    loadChildren: () => import('./organizadores/crear/crear.module').then( m => m.CrearPageModule)
+  },
+  {
+    path: 'organizadores/actualizar/:org_codigo',
+    loadChildren: () => import('./organizadores/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
   }
 ];
 
