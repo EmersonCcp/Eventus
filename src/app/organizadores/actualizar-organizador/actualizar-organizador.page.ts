@@ -7,11 +7,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'app-actualizar',
-  templateUrl: './actualizar.page.html',
-  styleUrls: ['./actualizar.page.scss'],
+  selector: 'app-actualizar-organizador',
+  templateUrl: './actualizar-organizador.page.html',
+  styleUrls: ['./actualizar-organizador.page.scss'],
 })
-export class ActualizarPage  implements OnInit{
+export class ActualizarOrganizadorPage  implements OnInit{
 
 
   organizadores: any;
@@ -46,7 +46,7 @@ export class ActualizarPage  implements OnInit{
 
 
   getDato(org_codigo){
-    this.orgService.getDato(this.id)
+    this.orgService.obtenerOrganizador(this.id)
     .subscribe(res => {
       console.log('DATAAAA',res);
       this.organizadores = res;
@@ -64,7 +64,7 @@ export class ActualizarPage  implements OnInit{
   }
   updateForm() {
     console.log('codigo id metodo update', this.id);
-      this.orgService.updateOrganizador(this.id, this.updateOrganizadorForm.value)
+      this.orgService.actualizarOrganizador(this.id, this.updateOrganizadorForm.value)
         .subscribe((res) => {
           console.log(res);
           this.updateOrganizadorForm.reset();

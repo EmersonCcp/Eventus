@@ -9,10 +9,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
     path: 'inicio-sesion',
     loadChildren: () => import('./inicio-sesion/inicio-sesion.module').then( m => m.InicioSesionPageModule)
   },
@@ -41,8 +37,8 @@ const routes: Routes = [
     loadChildren: () => import('./eventos/staff/staff.module').then( m => m.StaffPageModule)
   },
   {
-    path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+    path: 'perfil-usuario',
+    loadChildren: () => import('./perfil-usuario/perfil-usuario.module').then( m => m.PerfilPageModule)
   },
   {
     path: 'recuperar-pass',
@@ -66,11 +62,11 @@ const routes: Routes = [
   },
   {
     path: 'organizadores/crear',
-    loadChildren: () => import('./organizadores/crear/crear.module').then( m => m.CrearPageModule)
+    loadChildren: () => import('./organizadores/crear-organizador/crear-organizador.module').then( m => m.CrearPageModule)
   },
   {
     path: 'organizadores/actualizar/:org_codigo',
-    loadChildren: () => import('./organizadores/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
+    loadChildren: () => import('./organizadores/actualizar-organizador/actualizar-organizador.module').then( m => m.ActualizarPageModule)
   },
   {
     path: 'categorias',

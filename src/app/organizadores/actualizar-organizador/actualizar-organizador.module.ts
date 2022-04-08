@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ActualizarPageRoutingModule } from './actualizar-routing.module';
+import { ActualizarPageRoutingModule } from './actualizar-organizador-routing.module';
 
-import { ActualizarPage } from './actualizar.page';
+import { ActualizarOrganizadorPage } from './actualizar-organizador.page';
 
 @NgModule({
   imports: [
@@ -17,6 +17,6 @@ import { ActualizarPage } from './actualizar.page';
     ReactiveFormsModule,
     FormsModule
   ],
-  declarations: [ActualizarPage]
+  declarations: [ActualizarOrganizadorPage]
 })
 export class ActualizarPageModule {}

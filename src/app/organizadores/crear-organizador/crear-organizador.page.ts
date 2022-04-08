@@ -5,11 +5,11 @@ import { NgForm } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-crear',
-  templateUrl: './crear.page.html',
-  styleUrls: ['./crear.page.scss'],
+  selector: 'app-crear-organizador',
+  templateUrl: './crear-organizador.page.html',
+  styleUrls: ['./crear-organizador.page.scss'],
 })
-export class CrearPage implements OnInit {
+export class CrearOrganizadorPage implements OnInit {
 
   organizador = {
     org_codigo:null,
@@ -26,8 +26,9 @@ export class CrearPage implements OnInit {
   }
 
   crearOrganizador(){
-    this.orgService.create(this.organizador);
+    this.orgService.crearOrganizador(this.organizador);
     this.router.navigate(['/organizadores']);
+    this.orgService.listarOrganizadores();
     console.log(this.organizador);
   }
 

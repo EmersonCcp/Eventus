@@ -17,7 +17,7 @@ export class CategoriasService {
     return this.http.get(path);
   }
 
-   listarCategoriaService(id: number){
+   obtenerCategoriaService(id: number){
     const path = `${this.api}/find/${id}`;
     return this.http.get(path);
   }

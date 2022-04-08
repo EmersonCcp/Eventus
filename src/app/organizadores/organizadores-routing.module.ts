@@ -9,12 +9,12 @@ const routes: Routes = [
     component: OrganizadoresPage
   },
   {
-    path: 'crear',
-    loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
+    path: 'crear-organizador',
+    loadChildren: () => import('./crear-organizador/crear-organizador.module').then( m => m.CrearPageModule)
   },
   {
     path: 'actualizar',
-    loadChildren: () => import('./actualizar/actualizar.module').then( m => m.ActualizarPageModule)
+    loadChildren: () => import('./actualizar-organizador/actualizar-organizador.module').then( m => m.ActualizarPageModule)
   },
 
 ];

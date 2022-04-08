@@ -36,7 +36,7 @@ export class PresentacionPage implements OnInit {
   }
 
   onClick(){
-    this.navCtrl.navigateBack('/eventos-principal');
+    this.navCtrl.navigateBack('/home');
   }
 
 }

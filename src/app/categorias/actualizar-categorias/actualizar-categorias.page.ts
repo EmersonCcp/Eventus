@@ -37,7 +37,7 @@ export class ActualizarCategoriasPage implements OnInit {
   }
 
   listarOrganizador(ca_codigo){
-    this.categoriaService.listarCategoriaService(this.id)
+    this.categoriaService.obtenerCategoriaService(this.id)
     .subscribe(res =>{
     //  console.log('DATA: ',res);
       this.cat = res;

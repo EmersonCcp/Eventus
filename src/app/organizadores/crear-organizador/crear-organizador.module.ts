@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CrearPageRoutingModule } from './crear-routing.module';
+import { CrearOrganizadorPageRoutingModule } from './crear-organizador-routing.module';
 
-import { CrearPage } from './crear.page';
+import { CrearOrganizadorPage } from './crear-organizador.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrearPageRoutingModule
+    CrearOrganizadorPageRoutingModule
   ],
-  declarations: [CrearPage]
+  declarations: [CrearOrganizadorPage]
 })
 export class CrearPageModule {}

@@ -11,21 +11,21 @@ export class OrganizadoresService {
   api = 'http://localhost:3000/organizador';
   constructor(public http: HttpClient) { }
 
-  public getDatos(): Observable<any>{
+  public listarOrganizadores(): Observable<any>{
     const path = `${this.api}/list`;
     return this.http.get(path);
   }
 
-   getDato(id: number){
+   obtenerOrganizador(id: number){
     const path = `${this.api}/find/${id}`;
     return this.http.get(path);
   }
 
-  public filter(texto: String){
+  public filtrarOrganizador(texto: String){
     return this.http.get(this.api+`-filter?q=${texto}`);
   }
 
-  create(organizador){
+  crearOrganizador(organizador){
     const path = `${this.api}/create`;
     return this.http.post(path,organizador)
     .subscribe(resp => {
@@ -33,18 +33,12 @@ export class OrganizadoresService {
     });
   }
 
-  update(organizador){
-    const path = `${this.api}/update`;
-    return this.http.put(path,organizador);
-  }
-
-
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  updateOrganizador(org_codigo, organizador: Organizador) {
+  actualizarOrganizador(org_codigo, organizador: Organizador) {
     return this.http.put('http://localhost:3000/organizador/update/' + org_codigo, organizador);
   }
 
-  deleteOrganizadorService(id: Observable<Organizador[]>) {
+  eliminarOrganizadorService(id: Observable<Organizador[]>) {
     return this.http.delete<Organizador[]>('http://localhost:3000/organizador/remove/' + id);
   }
 

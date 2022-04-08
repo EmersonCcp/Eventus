@@ -31,7 +31,7 @@ export class OrganizadoresPage implements OnInit{
 
 
    listarOrganizadores(){
-    this.orgService.getDatos()
+    this.orgService.listarOrganizadores()
     .subscribe((data ) => {
       console.log(data);
       this.organizadors = data.organizadores;
@@ -41,7 +41,7 @@ export class OrganizadoresPage implements OnInit{
   buscar(event){
     const valor = event.detail.value;
 
-    this.orgService.filter(valor)
+    this.orgService.filtrarOrganizador(valor)
     .subscribe(data => {
       console.log(data);
       if(data){
@@ -57,41 +57,15 @@ export class OrganizadoresPage implements OnInit{
   eliminarOrganizador(organizador, i, slidingItem){
     console.log('eliminar, eliminar');
     if(window.confirm('Seguro que quieres eliminar?')){
-      this.orgService.deleteOrganizadorService(organizador.org_codigo)
+      this.orgService.eliminarOrganizadorService(organizador.org_codigo)
       .subscribe(() => {
         this.organizadors.splice(i,1);
         slidingItem.close();
+        this.ionViewWillEnter();
         console.log('Organizador eliminado!');
       });
     }
 
   }
-
-
-
-
-
-
-
- /*
-  update(){
-    const organizador = {
-      org_codigo: 6,
-      org_nombre: 'Luis',
-      org_cargo: 'Supervisor'
-    };
-    this.orgService.update(organizador)
-    .subscribe(data => {
-      console.log(data);
-    });
-  }
-
-  remove(){
-    this.orgService.delete(1)
-    .subscribe((data) => {
-      console.log(data);
-    });
-  } */
-
 
 }
