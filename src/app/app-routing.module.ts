@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -70,6 +71,18 @@ const routes: Routes = [
   {
     path: 'organizadores/actualizar/:org_codigo',
     loadChildren: () => import('./organizadores/actualizar/actualizar.module').then( m => m.ActualizarPageModule)
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./categorias/categorias.module').then( m => m.CategoriasPageModule)
+  },
+  {
+    path: 'categorias/crearCategoria',
+    loadChildren: () => import('./categorias/crear-categoria/crear-categoria.module').then( m => m.CrearCategoriaPageModule)
+  },
+  {
+    path: 'categorias/actualizarCategoria/:ca_codigo',
+    loadChildren: () => import('./categorias/actualizar-categorias/actualizar-categorias.module').then( m => m.ActualizarCategoriasPageModule)
   }
 ];
 

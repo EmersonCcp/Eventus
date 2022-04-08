@@ -1,6 +1,7 @@
 
   <ion-content>
-    <ion-slides pager="true" class="slide-full">
+
+      <ion-slides pager="true" class="slide-full">
       <ion-slide *ngFor="let slide of slides">
         <ion-card mode="ios">
           <img [src]="slide.img" class="slide-image">
@@ -19,5 +20,7 @@
         </ion-button>
       </ion-slide>
     </ion-slides>
+
+
   </ion-content>
 

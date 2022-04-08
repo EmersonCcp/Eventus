@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 import {OrganizadoresService} from '../app/services/organizadores.service';
+import {CategoriasService} from '../app/services/categorias.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ObjToArrayPipe } from './objToArray.pipe';
 import { NavController, NavParams } from '@ionic/angular';
@@ -17,7 +18,7 @@ import { NavController, NavParams } from '@ionic/angular';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,CommonModule,HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    OrganizadoresService,NavController,NavParams],
+    OrganizadoresService,CategoriasService,NavController,NavParams],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

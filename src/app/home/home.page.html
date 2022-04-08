@@ -29,7 +29,7 @@
     <!--EL GRID-->
     <ion-grid >
       <ion-row >
-        <ion-col size="9">
+        <ion-col size="9" >
          <div class="texto"><h6>Conciertos</h6></div>
         </ion-col>
         <ion-col  >
@@ -47,10 +47,10 @@
     </ion-grid>
 
 <!--ION CARD FINAL-->
-<ion-card color="warning">
-   <ion-button expand="block" color="primary" [routerLink]="['/registro']">Registrar-me</ion-button>
-   <ion-title color="dark">o</ion-title>
-   <ion-title color="dark">Ya eres un usuario?</ion-title>
-   <ion-button [routerLink]="['/inicio-sesion']" expand="block" color="danger">Iniciar Sesion</ion-button>
+<ion-card >
+   <ion-button  expand="block" [routerLink]="['/registro']">Registrar-me</ion-button>
+   <ion-title color="light">o</ion-title>
+   <ion-title color="light">Ya eres un usuario?</ion-title>
+   <ion-button color="danger" [routerLink]="['/inicio-sesion']" expand="block" >Iniciar Sesion</ion-button>
 </ion-card>
 </ion-content>

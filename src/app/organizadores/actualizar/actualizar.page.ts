@@ -1,8 +1,7 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import {OrganizadoresService} from '../../services/organizadores.service';
-import { NavController, NavParams } from '@ionic/angular';
-import { Organizador } from 'src/app/interfaces/organizador';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,9 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ActualizarPage  implements OnInit{
 
-  api = 'localhost:3000/organizador/find/';
-  org_codigo = 12;
-  organizador: Organizador;
+
   organizadores: any;
   id: any;
   updateOrganizadorForm: FormGroup;
@@ -53,7 +50,7 @@ export class ActualizarPage  implements OnInit{
     .subscribe(res => {
       console.log('DATAAAA',res);
       this.organizadores = res;
-      this.orgnombre= this.organizadores.organizador["org_nombre"];
+      this.orgnombre= this.organizadores.organizador['org_nombre'];
       this.orgcargo= this.organizadores.organizador["org_cargo"];
       this.orgdescripcion= this.organizadores.organizador["org_descripcion"];
       this.orgfoto= this.organizadores.organizador["org_foto"];

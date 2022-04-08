@@ -2,9 +2,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import {OrganizadoresService} from '../services/organizadores.service';
-import {Organizador} from '../interfaces/organizador';
-import { NavController } from '@ionic/angular';
-import { ActualizarPage } from './actualizar/actualizar.page';
+
 
 
 

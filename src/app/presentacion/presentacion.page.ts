@@ -10,24 +10,24 @@ export class PresentacionPage implements OnInit {
 
   slides: { img: string, titulo: string, desc: string }[] = [
     {
-      img: '/assets/slides/photos.svg',
-      titulo: 'Comparte Fotos',
-      desc: 'Mira y comparte increíbles fotos de todo el mundo'
+      img: '/assets/slides/placeholder.png',
+      titulo: 'Encuentra Eventos',
+      desc: 'Mira y comparte eventos cerca de ti!'
     },
     {
-      img: '/assets/slides/music-player-2.svg',
-      titulo: 'Escucha Música',
-      desc: 'Toda tu música favorita está aquí'
+      img: '/assets/slides/whatsapp.png',
+      titulo: 'Contactos directos',
+      desc: 'Puede contactar a los organizadores!'
     },
     {
-      img: '/assets/slides/calendar.svg',
-      titulo: 'Nunca olvides nada',
-      desc: 'El mejor calendario del mundo a tu disposición'
+      img: '/assets/slides/ticket.png',
+      titulo: 'Entradas',
+      desc: 'Podras ver los tipos y precios'
     },
     {
-      img: '/assets/slides/placeholder-1.svg',
-      titulo: 'Tu ubicación',
-      desc: 'Siempre sabremos donde estás!'
+      img: '/assets/slides/plus.png',
+      titulo: 'Crear tus eventos',
+      desc: 'Crea y gestiona tus propios eventos!'
     }
   ];
   constructor(private navCtrl: NavController) { }

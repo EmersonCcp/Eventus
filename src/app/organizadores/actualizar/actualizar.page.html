@@ -12,19 +12,24 @@
 
 <form [formGroup]="updateOrganizadorForm" (ngSubmit)="updateForm()">
         <ion-item >
-          <ion-label position="floating">Nombre y Apellido</ion-label>
+          <ion-label >Nombre y Apellido:</ion-label>
           <ion-input type="text" formControlName="org_nombre" value="{{this.orgnombre}}"></ion-input>
-
-          <ion-label position="floating">Cargo</ion-label>
-          <ion-input type="text" formControlName="org_cargo" value="{{this.orgcargo}}" ></ion-input>
-
-          <ion-label position="floating">Descripcion</ion-label>
-          <ion-input type="text" formControlName="org_descripcion" value="{{this.orgdescripcion}}" ></ion-input>
-
-          <ion-label position="floating">Foto</ion-label>
-          <ion-input type="text" formControlName="org_foto"   value="{{this.orgfoto}}"></ion-input>
-
         </ion-item>
+        <ion-item>
+          <ion-label >Cargo:</ion-label>
+          <ion-input type="text" formControlName="org_cargo" value="{{this.orgcargo}}" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label >Descripcion:</ion-label>
+          <ion-input type="text" formControlName="org_descripcion" value="{{this.orgdescripcion}}" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+           <ion-label >Foto:</ion-label>
+          <ion-input type="text" formControlName="org_foto"   value="{{this.orgfoto}}"></ion-input>
+        </ion-item>
+
         <ion-button type="submit">Actualizar</ion-button>
 
 </form>

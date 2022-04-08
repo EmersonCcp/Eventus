@@ -12,6 +12,7 @@ export class AppComponent {
     { title: 'Registro', url: 'registro', icon:'person-add', },
     { title: 'Mi perfil', url: 'perfil', icon: 'person-circle' },
     { title: 'Organizadores', url: 'organizadores', icon: 'people' },
+    { title: 'Categorias', url: 'categorias', icon: 'people' },
     { title: 'Mis eventos', url: 'mis-eventos', icon: 'storefront' },
     { title: 'Configuración', url: '', icon: 'construct' }
   ];

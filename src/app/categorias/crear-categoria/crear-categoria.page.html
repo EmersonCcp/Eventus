@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Crear Categoria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form>
+      <ion-item>
+        <ion-label position="floating">Categoria</ion-label>
+        <ion-input type="text" [(ngModel)]="categoria.ca_nombre" name="nombre"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button  [disabled]="categoria.ca_nombre.length < 1"
+          (click)="crearCategoria()"  expand="block">Crear Categoria</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>
