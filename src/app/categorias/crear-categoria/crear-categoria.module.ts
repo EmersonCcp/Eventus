@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, Validators, FormsModule,FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -12,7 +12,7 @@ import { CrearCategoriaPage } from './crear-categoria.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule,Validators,FormBuilder,FormGroup,ReactiveFormsModule,
     CrearCategoriaPageRoutingModule
   ],
   declarations: [CrearCategoriaPage]

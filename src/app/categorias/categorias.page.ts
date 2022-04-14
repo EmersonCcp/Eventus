@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class CategoriasPage implements OnInit {
 
-  categorias = [];
+  categorias = null;
 
   constructor(public categoriaService: CategoriasService,
     public toastController: ToastController ) { }
@@ -23,7 +23,7 @@ export class CategoriasPage implements OnInit {
     this.listarCategorias();
   }
 
-  listarCategorias(){
+   listarCategorias(){
     this.categoriaService.listarCategoriasService()
     .subscribe((data) => {
       console.log(data);

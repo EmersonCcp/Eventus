@@ -9,7 +9,7 @@ const routes: Routes = [
     component: OrganizadoresPage
   },
   {
-    path: 'crear-organizador',
+    path: 'crear',
     loadChildren: () => import('./crear-organizador/crear-organizador.module').then( m => m.CrearPageModule)
   },
   {

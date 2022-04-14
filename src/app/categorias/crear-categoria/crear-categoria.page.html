@@ -9,15 +9,14 @@
 
 <ion-content>
   <ion-card>
-    <form>
+    <form [formGroup]="categoriaForm" (ngSubmit)="guardarCategoria()">
       <ion-item>
         <ion-label position="floating">Categoria</ion-label>
-        <ion-input type="text" [(ngModel)]="categoria.ca_nombre" name="nombre"></ion-input>
+        <ion-input type="text" formControlName="nombre" ></ion-input>
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button  [disabled]="categoria.ca_nombre.length < 1"
-          (click)="crearCategoria()"  expand="block">Crear Categoria</ion-button>
+          <ion-button expand="block">Crear Categoria</ion-button>
         </ion-col>
       </ion-row>
     </form>

@@ -17,7 +17,7 @@ export class CategoriasService {
     return this.http.get(path);
   }
 
-   obtenerCategoriaService(id: number){
+   obtenerCategoriaService(id: string){
     const path = `${this.api}/find/${id}`;
     return this.http.get(path);
   }
@@ -32,6 +32,15 @@ export class CategoriasService {
     .subscribe(resp => {
       console.log(resp);
     });
+  }
+
+  public guardarCategoria(categoria: any){
+    const path = `${this.api}`;
+    if (categoria.ca_codigo){
+      return this.http.put(path+'/update',categoria); //actualizacion
+    }else{
+      return this.http.post(path+'/create',categoria); //creacion - nuevo
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/naming-convention

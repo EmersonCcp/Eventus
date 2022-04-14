@@ -17,8 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    path: 'registro-usuario',
+    loadChildren: () => import('./registro-usuario/registro-usuario.module').then( m => m.RegistroUsuarioPageModule)
   },
   {
     path: 'eventos-principal',
@@ -73,7 +73,7 @@ const routes: Routes = [
     loadChildren: () => import('./categorias/categorias.module').then( m => m.CategoriasPageModule)
   },
   {
-    path: 'categorias/crearCategoria',
+    path: 'categorias/crear/:ca_codigo',
     loadChildren: () => import('./categorias/crear-categoria/crear-categoria.module').then( m => m.CrearCategoriaPageModule)
   },
   {
