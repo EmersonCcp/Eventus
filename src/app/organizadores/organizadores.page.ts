@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import {OrganizadoresService} from '../services/organizadores.service';
+import { Router } from '@angular/router';
 
 
 
@@ -16,7 +17,10 @@ export class OrganizadoresPage implements OnInit{
   organizadors = [];
   org_codigo: number;
 
-  constructor(private orgService: OrganizadoresService,
+  constructor(
+    private orgService: OrganizadoresService,
+    public router: Router,
+
    ) {
 
    }
@@ -27,6 +31,9 @@ export class OrganizadoresPage implements OnInit{
 
    ionViewWillEnter(){
     this.listarOrganizadores();
+  }
+  ir(){
+    this.router.navigate(['/organizadores/organizador/0']);
   }
 
 

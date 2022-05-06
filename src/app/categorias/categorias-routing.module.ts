@@ -9,13 +9,11 @@ const routes: Routes = [
     component: CategoriasPage
   },
   {
-    path: 'crear',
-    loadChildren: () => import('./crear-categoria/crear-categoria.module').then( m => m.CrearCategoriaPageModule)
+    path: '/categorias/categoria/:id',
+    loadChildren: () => import('./categoria/categoria.module').then( m => m.CategoriaPageModule)
   },
-  {
-    path: 'actualizar',
-    loadChildren: () => import('./actualizar-categorias/actualizar-categorias.module').then( m => m.ActualizarCategoriasPageModule)
-  },
+
+
 ];
 
 @NgModule({

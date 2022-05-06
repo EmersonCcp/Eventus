@@ -5,10 +5,14 @@ import { Observable } from 'rxjs';
 import { Organizador } from '../interfaces/organizador';
 
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
 export class OrganizadoresService {
 
   api = 'http://localhost:3000/organizador';
+
   constructor(public http: HttpClient) { }
 
   public listarOrganizadores(): Observable<any>{
@@ -16,7 +20,7 @@ export class OrganizadoresService {
     return this.http.get(path);
   }
 
-   obtenerOrganizador(id: number){
+   obtenerOrganizador(id: string){
     const path = `${this.api}/find/${id}`;
     return this.http.get(path);
   }
@@ -25,17 +29,13 @@ export class OrganizadoresService {
     return this.http.get(this.api+`-filter?q=${texto}`);
   }
 
-  crearOrganizador(organizador){
-    const path = `${this.api}/create`;
-    return this.http.post(path,organizador)
-    .subscribe(resp => {
-      console.log(resp);
-    });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  actualizarOrganizador(org_codigo, organizador: Organizador) {
-    return this.http.put('http://localhost:3000/organizador/update/' + org_codigo, organizador);
+  public guardarOrganizadorService(organizador: any){
+    const path = `${this.api}`;
+    if (organizador.org_codigo){
+      return this.http.put(path+'/update',organizador); //actualizacion
+    }else{
+      return this.http.post(path+'/create',organizador); //creacion - nuevo
+    }
   }
 
   eliminarOrganizadorService(id: Observable<Organizador[]>) {

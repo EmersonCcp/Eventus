@@ -13,15 +13,12 @@
   debounce="100"
   (ionChange)="buscarCategoria ($event) " ></ion-searchbar>
 
-  <ion-list *ngFor="let categoria of categorias; let index = i" [routerLink]="'/crearCategoria/'+categoria.ca_codigo">
+  <ion-list *ngFor="let categoria of categorias; let index = i" [routerLink]="['/categoria/'+categoria.ca_codigo]">
     <ion-item-sliding #slidingItem>
       <ion-item class="item-label item ios in-list ion-focusable hydrated">
 
           <ion-item >
             <ion-label >
-              {{this.categoria.ca_codigo}}
-            </ion-label>
-            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
               {{this.categoria.ca_nombre}}
             </ion-label>
           </ion-item>
@@ -32,16 +29,18 @@
                 <ion-item-option (click)="eliminarCategoria(categoria, index, slidingItem)" color="danger">
                   <ion-icon name="trash"></ion-icon>
                 </ion-item-option>
-                <ion-item-option [routerLink]="['/categorias/actualizarCategoria/' + this.categoria.ca_codigo]"  color="primary">
+                <ion-item-option [routerLink]="['/categorias/categoria/' + this.categoria.ca_codigo]"  color="primary">
                   <ion-icon name="create"></ion-icon>
                 </ion-item-option>
               </ion-item-options>
 
   </ion-item-sliding>
 
+
   </ion-list>
 
-  <ion-fab [routerLink]="['/categorias/crear/0']"
+
+  <ion-fab [routerLink]="['/categorias/categoria/0']"
   vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="btnCrear">
       <ion-icon name="add" ></ion-icon>

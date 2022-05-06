@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./recuperar-pass/recuperar-pass.module').then( m => m.RecuperarPassPageModule)
   },
   {
-    path: 'crear-evento',
+    path: 'crear-eventos',
     loadChildren: () => import('./abmEventos/crear-evento/crear-evento.module').then( m => m.CrearEventoPageModule)
   },
   {
@@ -61,25 +61,23 @@ const routes: Routes = [
     loadChildren: () => import('./organizadores/organizadores.module').then( m => m.OrganizadoresPageModule)
   },
   {
-    path: 'organizadores/crear',
-    loadChildren: () => import('./organizadores/crear-organizador/crear-organizador.module').then( m => m.CrearPageModule)
-  },
-  {
-    path: 'organizadores/actualizar/:org_codigo',
-    loadChildren: () => import('./organizadores/actualizar-organizador/actualizar-organizador.module').then( m => m.ActualizarPageModule)
-  },
-  {
     path: 'categorias',
     loadChildren: () => import('./categorias/categorias.module').then( m => m.CategoriasPageModule)
   },
   {
-    path: 'categorias/crear/:ca_codigo',
-    loadChildren: () => import('./categorias/crear-categoria/crear-categoria.module').then( m => m.CrearCategoriaPageModule)
+    path: 'categorias/categoria/:id',
+    loadChildren: () => import('./categorias/categoria/categoria.module').then( m => m.CategoriaPageModule)
   },
   {
-    path: 'categorias/actualizarCategoria/:ca_codigo',
-    loadChildren: () => import('./categorias/actualizar-categorias/actualizar-categorias.module').then( m => m.ActualizarCategoriasPageModule)
-  }
+    path: 'organizadores/organizador/:id',
+    loadChildren: () => import('./organizadores/organizador/organizador.module').then( m => m.OrganizadorPageModule)
+  },
+  {
+    path: 'modal-foto-edit',
+    loadChildren: () => import('./modal-foto-edit/modal-foto-edit.module').then( m => m.ModalFotoEditPageModule)
+  },
+
+
 ];
 
 @NgModule({

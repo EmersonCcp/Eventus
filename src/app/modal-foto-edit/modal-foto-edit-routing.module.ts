@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CrearCategoriaPage } from './crear-categoria.page';
+import { ModalFotoEditPage } from './modal-foto-edit.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CrearCategoriaPage
+    component: ModalFotoEditPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CrearCategoriaPageRoutingModule {}
+export class ModalFotoEditPageRoutingModule {}

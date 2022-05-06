@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CategoriasService} from '../services/categorias.service';
 import {Categoria} from '../interfaces/categoria';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorias',
@@ -13,7 +14,8 @@ export class CategoriasPage implements OnInit {
   categorias = null;
 
   constructor(public categoriaService: CategoriasService,
-    public toastController: ToastController ) { }
+    public toastController: ToastController,
+    public router: Router ) { }
 
   ngOnInit() {
     this.listarCategorias();
@@ -21,6 +23,10 @@ export class CategoriasPage implements OnInit {
 
   ionViewWillEnter(){
     this.listarCategorias();
+  }
+
+  ir(){
+    this.router.navigate(['/categorias/categoria/0']);
   }
 
    listarCategorias(){

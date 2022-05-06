@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar color="mycolor">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button defaultHref="/categorias"></ion-back-button>
     </ion-buttons>
-    <ion-title color="light">Crear Categoria</ion-title>
+    <ion-title color="light">Guardar Categoria</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,11 +12,11 @@
     <form [formGroup]="categoriaForm" (ngSubmit)="guardarCategoria()">
       <ion-item>
         <ion-label position="floating">Categoria</ion-label>
-        <ion-input type="text" formControlName="nombre" ></ion-input>
+        <ion-input type="text" formControlName="nombre"></ion-input>
       </ion-item>
       <ion-row>
         <ion-col>
-          <ion-button expand="block">Crear Categoria</ion-button>
+          <ion-button type="submit" expand="block">Guardar Categoria</ion-button>
         </ion-col>
       </ion-row>
     </form>

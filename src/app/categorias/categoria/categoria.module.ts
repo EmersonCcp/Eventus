@@ -4,17 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CrearEventoPageRoutingModule } from './crear-evento-routing.module';
+import { CategoriaPageRoutingModule } from './categoria-routing.module';
 
-import { CrearEventoPage } from './crear-evento.page';
+import { CategoriaPage } from './categoria.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,ReactiveFormsModule,
     IonicModule,
-    CrearEventoPageRoutingModule
+    CategoriaPageRoutingModule
   ],
-  declarations: [CrearEventoPage]
+  declarations: [CategoriaPage]
 })
-export class CrearEventoPageModule {}
+export class CategoriaPageModule {}

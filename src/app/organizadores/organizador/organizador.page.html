@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="mycolor">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/organizadores"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Guardar Organizador</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form [formGroup]="organizadorForm" (ngSubmit)="guardarOrganizador()"
+     method="post" enctype="multipart/form-data">
+<!--FOTO DE PERFIL-->
+     <div  class="container" >
+      <ion-avatar class="outer" *ngFor="let photo of photos; index as position">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+        <div class="inner" (click)="getPicture()" >
+          <ion-icon name="camera" class="camera-icon"></ion-icon>
+        </div>
+      </ion-avatar>
+      <div>
+      </div>
+    </div>
+<!--OTROS DATOS-->
+      <ion-item>
+        <ion-label position="floating">Nombre y Apellido</ion-label>
+        <ion-input type="text"  formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Cargo</ion-label>
+        <ion-input type="text"  formControlName="cargo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descripcion</ion-label>
+        <ion-input type="text"  formControlName="descripcion"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">Link de Whatsapp</ion-label>
+        <ion-input type="text"  formControlName="whatsapp"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" expand="block">Guardar Categoria</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-card>
+</ion-content>

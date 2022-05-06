@@ -18,17 +18,20 @@
     <ion-item class="item-label item ios in-list ion-focusable hydrated">
 
           <ion-avatar slot="start">
-            <img src="../../assets/img/perfil/perfil.jpg" />
+            <img src="{{this.organizador.org_foto}}">
           </ion-avatar>
 
 
-        <ion-item >
+
           <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
             <h2>{{this.organizador.org_nombre}}</h2>
             <h3>{{this.organizador.org_cargo}}</h3>
             <p>{{this.organizador.org_descripcion}}</p>
           </ion-label>
-        </ion-item>
+          <ion-button color="success" href="{{this.organizador.org_whatsapp}}" target="_blank">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+          </ion-button>
+
 
       </ion-item>
 
@@ -36,7 +39,7 @@
               <ion-item-option (click)="eliminarOrganizador(organizador, index, slidingItem)" color="danger">
                 <ion-icon name="trash"></ion-icon>
               </ion-item-option>
-              <ion-item-option [routerLink]="['/organizadores/actualizar/' + this.organizador.org_codigo]" color="primary">
+              <ion-item-option [routerLink]="['/organizadores/organizador/' + this.organizador.org_codigo]" color="primary">
                 <ion-icon name="create"></ion-icon>
               </ion-item-option>
             </ion-item-options>
@@ -50,7 +53,7 @@
 
   <!--para agregar nuevos organizadores-->
 
-    <ion-fab [routerLink]="['/organizadores/crear']"
+    <ion-fab [routerLink]="['/organizadores/organizador/0']"
   vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button class="btnCrear">
       <ion-icon name="add" ></ion-icon>

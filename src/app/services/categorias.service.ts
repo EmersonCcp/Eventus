@@ -5,11 +5,13 @@ import { Observable } from 'rxjs';
 import {Categoria} from '../interfaces/categoria';
 
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CategoriasService {
 
   api = 'http://localhost:3000/categoria';
+
   constructor(public http: HttpClient) { }
 
   public listarCategoriasService(): Observable<any>{
@@ -43,10 +45,6 @@ export class CategoriasService {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  actualizarCategoriaService(ca_codigo, categoria: Categoria) {
-    return this.http.put('http://localhost:3000/categoria/update/' + ca_codigo, categoria);
-  }
 
   eliminarCategoriaService(id: Observable<Categoria[]>) {
     return this.http.delete<Categoria[]>('http://localhost:3000/categoria/remove/' + id);
