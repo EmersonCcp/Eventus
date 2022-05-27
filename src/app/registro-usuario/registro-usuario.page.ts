@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsuariosService } from '../services/usuarios.service';
 import {ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -21,7 +22,8 @@ export class RegistroPage implements OnInit {
 
   constructor(
     private usuarioService:  UsuariosService,
-    public toastController: ToastController) { }
+    public toastController: ToastController,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -36,6 +38,8 @@ export class RegistroPage implements OnInit {
       if((this.usuario.usu_password) == (this.usuario.usu_confpass)){
       console.log('son iguales');
       this.usuarioService.crearUsuario(this.usuario);
+      this.registroExistoso();
+      this.router.navigate(['/inicio-sesion']);
     }else{
       console.log(this.usuario);
       this.passwordInvalido();
@@ -50,6 +54,14 @@ export class RegistroPage implements OnInit {
       message: 'Las contraseñas no coinciden!',
       duration: 2000,
       color: 'danger'
+    });
+    toast.present();
+  }
+  async registroExistoso() {
+    const toast = await this.toastController.create({
+      message: 'Registro Exitoso!',
+      duration: 2000,
+      color: 'success'
     });
     toast.present();
   }

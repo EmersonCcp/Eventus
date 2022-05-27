@@ -8,30 +8,39 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar placeholder="Buscar evento"
+  debounce="100"
+  (ionChange)="buscar ($event) " ></ion-searchbar>
+
   <ion-list *ngFor="let evento of eventos; let index = i">
 
     <ion-item-sliding #slidingItem>
       <ion-item class="item-label item ios in-list ion-focusable hydrated">
-
             <ion-avatar slot="start">
               <img src="{{this.evento.eve_img}}">
             </ion-avatar>
-
-
-
             <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated">
               <h2>{{this.evento.eve_nombre}}</h2>
               <h3>{{this.evento.eve_estado}}</h3>
               <p>{{this.evento.fk_categoria}}</p>
             </ion-label>
-
-
-
         </ion-item>
 
-
-
+        <ion-item-options side="end">
+          <ion-item-option (click)="eliminarEvento(evento, index, slidingItem)" color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </ion-item-option>
+          <ion-item-option [routerLink]="['/mis-eventos/crear-evento/' + this.evento.eve_codigo]" color="primary">
+            <ion-icon name="create"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
   </ion-item-sliding>
-
   </ion-list>
+
+  <ion-fab [routerLink]="['/mis-eventos/crear-evento/0']"
+  vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button class="btnCrear">
+      <ion-icon name="add" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

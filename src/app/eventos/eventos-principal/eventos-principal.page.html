@@ -14,20 +14,20 @@
     <ion-input [routerLink]="['/buscar-eventos']"><b>Ciudad del Este</b><ion-icon name="caret-down-sharp"></ion-icon></ion-input>
   </div>
   <!--CARD PRINCIPAL-->
-  <ion-card [routerLink]="['/evento-detalle']">
-      <ion-img  src="assets/img/eventos/djpv.jpg"></ion-img>
-    <ion-card-content>
-      <ion-card-subtitle color="danger">
-        jue,mar 10 | 15:30 GMT-03:00</ion-card-subtitle>
-        <ion-card-title>
-          DJ PV ft PRETO NO BRANCO (INTENSAMENTE)
-        </ion-card-title>
-        <ion-item class="icons">
-          <ion-icon color="dark" slot="end" name="share-social"></ion-icon>
-          <ion-icon color="dark" slot="end" name="heart-outline"></ion-icon>
-        </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <ion-card [routerLink]="['/eventos-principal/evento-detalle/' + this.eventoPrimario.codigo]">
+    <ion-img  src="{{this.eventoPrimario.img}}"></ion-img>
+  <ion-card-content>
+    <ion-card-subtitle color="danger">
+      {{this.eventoPrimario.horario}}</ion-card-subtitle>
+      <ion-card-title>
+        {{this.eventoPrimario.titulo}}
+      </ion-card-title>
+      <ion-item >
+        <ion-icon color="dark" slot="end" name="share-social"></ion-icon>
+        <ion-icon color="dark" slot="end" name="heart-outline"></ion-icon>
+      </ion-item>
+  </ion-card-content>
+</ion-card>
   <!--DIVISORIA-->
   <ion-item-divider >
     <ion-label color="dark">
@@ -35,16 +35,16 @@
     </ion-label>
   </ion-item-divider>
   <!--CARDS SECUNDARIOS-->
-  <div id="container">
-    <ion-card  *ngFor="let evento of eventosSecundarios" >
+  <div id="container" >
+    <ion-card  *ngFor="let evento of eventos" [routerLink]="['/eventos-principal/evento-detalle/' + this.evento.eve_codigo]">
     <ion-item-group >
       <ion-item color="light" >
         <ion-thumbnail slot="start">
-          <img  src="{{evento.img}}">
+          <img  src="{{this.evento.eve_img}}">
         </ion-thumbnail>
         <ion-label>
-          <p style="color: rgb(230, 42, 42);font-size: 10px;">{{evento.horario}}</p>
-          <h5>{{evento.titulo}}</h5>
+          <p style="color: rgb(230, 42, 42);font-size: 10px;">{{this.evento.eve_descripcion}}</p>
+          <h5>{{this.evento.eve_nombre}}</h5>
         </ion-label>
           <ion-icon slot="end" name="share-social"></ion-icon>
           <ion-icon slot="end" name="heart-outline"></ion-icon>
@@ -59,7 +59,7 @@
     </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button [routerLink]="['/mis-eventos']"><ion-icon name="eye"></ion-icon></ion-fab-button>
-      <ion-fab-button [routerLink]="['/crear-eventos']" class="btnCrear"><ion-icon name="create"></ion-icon></ion-fab-button>
+      <ion-fab-button [routerLink]="['/mis-eventos/crear-evento/0']" class="btnCrear"><ion-icon name="create"></ion-icon></ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 

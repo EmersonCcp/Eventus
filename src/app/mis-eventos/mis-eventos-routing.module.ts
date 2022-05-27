@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: MisEventosPage
-  }
+  },
+  {
+    path: 'crear-evento/:id',
+    loadChildren: () => import('./crear-evento/crear-evento.module').then( m => m.CrearEventoPageModule)
+  },
 ];
 
 @NgModule({

@@ -13,8 +13,8 @@
      method="post" enctype="multipart/form-data">
 <!--FOTO DE PERFIL-->
      <div  class="container" >
-      <ion-avatar class="outer" *ngFor="let photo of photos; index as position">
-        <ion-img [src]="photo.webviewPath"></ion-img>
+      <ion-avatar class="outer" >
+        <ion-img [src]="this.foto"></ion-img>
         <div class="inner" (click)="getPicture()" >
           <ion-icon name="camera" class="camera-icon"></ion-icon>
         </div>

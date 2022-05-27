@@ -11,17 +11,19 @@
   <!--FORMULARIO PARA INICIO DE SESION-->
 <ion-card>
   <ion-img class="logo" src="assets/img/logo.jpg" ></ion-img>
-  <form #formulario="ngForm" (ngSubmit)="verificarDatos()">
+
+  <form [formGroup]="usuarioSesionForm" (ngSubmit)="iniciarSesionForm()" style="margin-top: 50px" method="post"
+  enctype="multipart/form-data">
     <!--ENTRADAS DE DATOS (CORREO Y CONTRASEÑA)-->
     <ion-list>
       <ion-item lines="full">
       <ion-label position="floating" color="medium">Correo Electronico</ion-label>
-      <ion-input type="email" required name="correo"
-      pattern="^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$)" [(ngModel)]="usuario.correo"></ion-input>
+      <ion-input type="email" required formControlName="usu_email"
+      pattern="^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$)" ></ion-input>
     </ion-item>
     <ion-item lines="full">
       <ion-label position="floating" color="medium">Contraseña</ion-label>
-      <ion-input type="password" required [(ngModel)]="usuario.password" name="password" ></ion-input>
+      <ion-input type="password" required  formControlName="usu_password"></ion-input>
     </ion-item>
 <!--BOTON PARA INICIAR SESION-->
     <ion-row>

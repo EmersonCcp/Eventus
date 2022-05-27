@@ -58,7 +58,7 @@ export class CategoriasPage implements OnInit {
       .subscribe(() => {
         this.categorias.splice(i,1);
         slidingItem.close();
-        this.ionViewWillEnter();
+        this.listarCategorias();
         this.mensajeEliminar();
         console.log('Categoria eliminada!');
       });

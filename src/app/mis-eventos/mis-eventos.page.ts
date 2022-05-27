@@ -45,14 +45,14 @@ export class MisEventosPage implements OnInit {
     });
   }
 
-  eliminarOrganizador(evento, i, slidingItem){
+  eliminarEvento(evento, i, slidingItem){
     console.log('eliminar, eliminar');
     if(window.confirm('Seguro que quieres eliminar?')){
       this.eventosService.eliminarEventoService(evento.eve_codigo)
       .subscribe(() => {
         this.eventos.splice(i,1);
         slidingItem.close();
-        this.ionViewWillEnter();
+        this.listarEventos();
         console.log('Organizador eliminado!');
       });
     }

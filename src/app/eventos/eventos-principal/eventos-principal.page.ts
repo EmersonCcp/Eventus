@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventosService } from '../../services/eventos.service';
 
 @Component({
   selector: 'app-eventos-detalle',
@@ -7,54 +8,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosDetallePage implements OnInit {
 
-  public eventosSecundarios: any[];
+  public eventoPrimario: any = [];
+  eventos = [];
+  public codigo: string;
+  constructor(private eventoService: EventosService) {
 
-  constructor() {
-    this.eventosSecundarios = [
-      {
-        titulo: 'Grupo Grace',
-        descripcion: '',
-        horario:'jue,mar 10 | 15:30 GMT-03:00',
-        ciudad:'',
-        ubicacion:'',
-        img: 'assets/img/eventos/grace.jpg'
-      },
-      {
-        titulo: 'MercyMe',
-        descripcion: '',
-        horario:'mier,lun 12 | 13:30 GMT-02:00',
-        ciudad:'',
-        ubicacion:'',
-        img: 'assets/img/eventos/mercyme.jpg'
-      },
-      {
-        titulo: 'Barak - Texas',
-        descripcion: '',
-        horario:'lun,mar 17 | 15:00 GMT-03:00',
-        ciudad:'',
-        ubicacion:'',
-        img: 'assets/img/eventos/barak.jpg'
-      },
-      {
-        titulo: 'Hillsong United - New York',
-        descripcion: '',
-        horario:'dom,mar 3 | 15:30 GMT-05:00',
-        ciudad:'',
-        ubicacion:'',
-        img: 'assets/img/eventos/hillsong.jpg'
-      },
-      {
-        titulo: 'DJPV Rio de Janeiro',
-        descripcion: '',
-        horario:'jue,sab 10 | 15:30 GMT-02:00',
-        ciudad:'',
-        ubicacion:'',
-        img: 'assets/img/eventos/djpv.jpg'
-      }
-    ];
    }
 
   ngOnInit() {
+    this.obtenerEvento();
+    this.listarEventos();
   }
+  ionViewWillEnter(){
+    this.listarEventos();
+
+  }
+
+ listarEventos(){
+   this.eventoService.listarEventosService()
+   .subscribe((data:any) => {
+     console.log(data);
+     this.eventos = data.eventos;
+   });
+ }
+
+ private async obtenerEvento() {
+  this.codigo = '1';
+  if (this.codigo !== '0') {
+    this.eventoService
+      .obtenerEvento(this.codigo)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.eventoPrimario = {
+            codigo: data.evento.eve_codigo,
+            titulo: data.evento.eve_nombre,
+            descripcion: data.evento.eve_descripcion,
+            horario: data.evento.eve_ubicacion,
+            img: data.evento.eve_img
+          }
+        ;
+      });
+  }
+}
 
 }

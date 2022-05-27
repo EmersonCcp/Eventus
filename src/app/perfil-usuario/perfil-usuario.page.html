@@ -1,40 +1,47 @@
 <ion-header>
   <ion-toolbar color="mycolor">
-    <ion-buttons slot="start" >
-      <ion-menu-button ></ion-menu-button>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title color="light">Mi Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="updateUsuarioForm" (ngSubmit)="updateForm()" style="margin-top: 50px" method="post"
+    enctype="multipart/form-data">
+    <!--FOTO DE PERFIL-->
+    <div class="container">
+      <ion-avatar class="outer">
+        <ion-img [src]="this.foto"></ion-img>
+        <div class="inner" (click)="getPicture()">
+          <ion-icon name="camera" class="camera-icon"></ion-icon>
+        </div>
+      </ion-avatar>
+      <div></div>
+    </div>
 
-  <ion-avatar >
-    <img  src="assets\img\perfil\perfil.jpg">
-  </ion-avatar>
-  <form [formGroup]="updateUsuarioForm" (ngSubmit)="updateForm()"style="margin-top: 50px;">
-
-      <ion-item lines="full">
-        <ion-label position="stacked"  color="dark">Nombre</ion-label>
-        <ion-input type="text" formControlName="usu_nombre"  value="{{this.usuNombre}}" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-label position="stacked" color="dark">Apellido</ion-label>
-        <ion-input type="text" formControlName="usu_apellido"  value="{{this.usuApellido}}" required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked" color="dark">Fecha de nacimiento</ion-label>
-        <ion-input type="date" formControlName="usu_fnac"  value="{{this.usuFecha}}"  required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked"  color="dark">Correo electronico</ion-label>
-        <ion-input type="email" formControlName="usu_email"  value="{{this.usuEmail}}" required></ion-input>
-      </ion-item>
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit" color="mycolor" expand="block">Actualizar</ion-button>
-        </ion-col>
-      </ion-row>
+    <ion-item lines="full">
+      <ion-label position="stacked" color="dark">Nombre</ion-label>
+      <ion-input type="text" formControlName="usu_nombre" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="stacked" color="dark">Apellido</ion-label>
+      <ion-input type="text" formControlName="usu_apellido" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" color="dark">Fecha de nacimiento</ion-label>
+      <ion-input type="date" formControlName="usu_fnac" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="mycolor" expand="block"
+          >Actualizar</ion-button
+        >
+      </ion-col>
+    </ion-row>
   </form>
-
+  <ion-button (click)="cerrarSesion()" type="submit" color="mycolor" expand="block"
+          >Cerrar Sesión</ion-button>
 </ion-content>
+

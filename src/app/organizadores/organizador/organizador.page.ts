@@ -2,13 +2,12 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Capacitor } from '@capacitor/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { OrganizadoresService } from '../../services/organizadores.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
-import { LoadingController, ModalController, Platform, ToastController } from '@ionic/angular';
-import { ModalFotoEditPage } from '../../modal-foto-edit/modal-foto-edit.page';
+import { Platform } from '@ionic/angular';
+
 import {
   Camera,
   CameraResultType,
@@ -16,34 +15,22 @@ import {
   Photo,
 } from '@capacitor/camera';
 const URL: any = 'localhost:3000/organizador/uploads';
-import { Filesystem, Directory } from '@capacitor/filesystem';
-import { ViewChild } from '@angular/core';
-import { ElementRef } from '@angular/core';
+import { Filesystem } from '@capacitor/filesystem';
 
-interface LocalFile {
-  name: string;
-  path: string;
-  data: string;
-}
-const IMAGE_DIR = 'stored-images';
 @Component({
   selector: 'app-organizador',
   templateUrl: './organizador.page.html',
   styleUrls: ['./organizador.page.scss'],
 })
 export class OrganizadorPage implements OnInit {
-
-  isDesktop: boolean;
   public foto: any = 'https://cdn-icons-png.flaticon.com/512/4128/4128176.png';
-  public archivos: any = [];
-  public previsualizacion: string;
-  org_foto: string;
-  type: any;
+  org_foto: string = this.foto;
+
   public photos: any = [
     {
-      filepath: "soon...",
-      webviewPath: this.foto
-    }
+      filepath: 'soon...',
+      webviewPath: this.foto,
+    },
   ];
 
   organizadorForm = this.fb.group({
@@ -54,7 +41,7 @@ export class OrganizadorPage implements OnInit {
     whatsapp: ['', Validators.required],
   });
   public codigo: string;
-  images: LocalFile[] = [];
+  // images: LocalFile[] = [];
 
   constructor(
     public http: HttpClient,
@@ -63,8 +50,6 @@ export class OrganizadorPage implements OnInit {
     private organizadorService: OrganizadoresService,
     private fb: FormBuilder,
     private router: Router,
-    private modalController: ModalController,
-    private loadingCtrl: LoadingController,
     private platform: Platform
   ) {}
 
@@ -73,25 +58,7 @@ export class OrganizadorPage implements OnInit {
   }
 
   public guardarOrganizador() {
-    //subir imagen al servidor
-    /*try {
-      const formularioDeDatos = new FormData();
-      this.archivos.forEach((archivo: File) => {
-        formularioDeDatos.append('org_foto', archivo, archivo.name);
-        const nombre = archivo.name;
-        this.foto = archivo.name;
-        //console.log(nombre);
-      });
-      this.http
-        .post(`http://localhost:3000/avatar`, formularioDeDatos)
-        .subscribe((res) => {
-          console.log('respuesta del servidor', res);
-        });
-    } catch (e) {
-      console.log('error', e);
-    }*/
     console.log(this.foto);
-    //subir a la BD
     const organizador = this.organizadorForm.value;
     const tmpOrganizador = {
       org_codigo: this.codigo === '0' ? null : Number(this.codigo),
@@ -100,8 +67,10 @@ export class OrganizadorPage implements OnInit {
       org_descripcion: organizador.descripcion,
       org_foto: this.org_foto,
       org_whatsapp: organizador.whatsapp,
+      fk_usuario: this.codigo === '0' ? null : Number(this.codigo),
     };
-    console.log(tmpOrganizador);
+    console.log('org_codigo:', tmpOrganizador.org_codigo);
+    console.log('fk_usuario:', tmpOrganizador.fk_usuario);
     this.organizadorService
       .guardarOrganizadorService(tmpOrganizador)
       .subscribe((data: any) => {
@@ -126,9 +95,11 @@ export class OrganizadorPage implements OnInit {
               foto: data.organizador.org_foto,
               whatsapp: data.organizador.org_whatsapp,
             });
+            this.org_foto = data.organizador.org_foto;
+            this.foto = data.organizador.org_foto;
             this.photos.unshift({
               filepath: 'soon...',
-              webviewPath: data.organizador.org_foto
+              webviewPath: data.organizador.org_foto,
             });
             console.log(data.organizador.org_foto);
           }
@@ -138,33 +109,30 @@ export class OrganizadorPage implements OnInit {
 
   async getPicture() {
     const image = await Camera.getPhoto({
-        quality: 90,
-        allowEditing: false,
-        resultType: CameraResultType.Uri,
-        source: CameraSource.Photos // Camera, Photos or Prompt!
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Uri,
+      source: CameraSource.Photos, // Camera, Photos or Prompt!
     });
+    this.foto = image.webPath;
     this.photos.unshift({
-      filepath: "soon...",
-      webviewPath: image.webPath
+      filepath: 'soon...',
+      webviewPath: image.webPath,
     });
     //this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-    console.log('image:',image);
+    console.log('image:', image);
     if (image) {
-        //this.saveImage(image);
-        const base64Data = await this.readAsBase64(image);
-        this.org_foto= base64Data;
+      //this.saveImage(image);
+      const base64Data = await this.readAsBase64(image);
+      this.org_foto = base64Data;
     }
-
   }
 
   upload(event: Event) {
     const target = event.target as HTMLInputElement;
     const files = target.files as FileList;
     console.log(files);
-}
-
-
-
+  }
 
   private async readAsBase64(photo: Photo) {
     if (this.platform.is('hybrid')) {
@@ -192,28 +160,26 @@ export class OrganizadorPage implements OnInit {
       reader.readAsDataURL(blob);
     });
 
-      //imagen
+  //imagen
   extraerBase64 = async ($event: any) =>
-  new Promise((resolve, reject) => {
-    try {
-      const unsafeImg = window.URL.createObjectURL($event);
-      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-      const reader = new FileReader();
-      reader.readAsDataURL($event);
-      reader.onload = () => {
-        resolve({
-          base: reader.result,
-        });
-      };
-      reader.onerror = (error) => {
-        resolve({
-          base: null,
-        });
-      };
-    } catch (e) {
-      return null;
-    }
-  });
-
-
+    new Promise((resolve, reject) => {
+      try {
+        const unsafeImg = window.URL.createObjectURL($event);
+        const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+        const reader = new FileReader();
+        reader.readAsDataURL($event);
+        reader.onload = () => {
+          resolve({
+            base: reader.result,
+          });
+        };
+        reader.onerror = (error) => {
+          resolve({
+            base: null,
+          });
+        };
+      } catch (e) {
+        return null;
+      }
+    });
 }

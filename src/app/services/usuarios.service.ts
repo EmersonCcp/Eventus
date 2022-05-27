@@ -20,8 +20,9 @@ export class UsuariosService {
     return {...this.usuario};
   }
 
-  obtenerUsuarioService(id: number){
+  obtenerUsuarioService(id: string){
     const path = `${this.api}/find/${id}`;
+    console.log(path);
     return this.http.get(path);
   }
 
@@ -33,8 +34,29 @@ export class UsuariosService {
     });
   }
 
-  actualizarUsuarioService(usu_codigo, usuario) {
-    return this.http.put('http://localhost:3000/usuario/update/' + usu_codigo, usuario);
+  actualizarUsuarioService( usuario) {
+    const path = `${this.api}/update`;
+    return this.http.put(path, usuario);
+  }
+
+  public guardarUsuario(usuario: any){
+    const path = `${this.api}`;
+    if (usuario.usu_codigo){
+      return this.http.put(path+'/update',usuario); //actualizacion
+    }else{
+      return this.http.post(path+'/create',usuario); //creacion - nuevo
+      console.log(path);
+    }
+  }
+
+  loginUsuarioService(usuario){
+    const path = 	`${this.api}/login`;
+    return this.http.post(path,usuario);
+  }
+
+  logoutUsuarioService(usuario){
+    const path = 	`${this.api}/logout`;
+    return this.http.post(path,usuario);
   }
 
 }

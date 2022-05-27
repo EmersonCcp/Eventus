@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -32,7 +33,10 @@ export class CategoriaPage implements OnInit {
     const tmpCategoria = {
       ca_codigo: this.codigo === '0' ? null: Number(this.codigo),
       ca_nombre: categoria.nombre,
+      fk_usuario: this.codigo === '0' ? null: Number(this.codigo)
     };
+    console.log('eve_codigo:',tmpCategoria.ca_codigo);
+    console.log('fk_usuario:',tmpCategoria.fk_usuario);
     this.categoriaService.guardarCategoria(tmpCategoria).subscribe( (data: any) => {
       //console.log(this.data);
       this.router.navigate(['/categorias']);

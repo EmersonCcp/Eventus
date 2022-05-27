@@ -20,7 +20,7 @@
     </ion-chip>
   </ion-item>
   <!--ION CARD PRINCIPAL-->
-  <ion-card  color="dark" [routerLink]="['/eventos-principal']">
+  <ion-card  color="dark" (click)="navigate()">
             <ion-img src="assets/img/eventos/barak.jpg"></ion-img>
       <ion-card-content >
        <ion-title>Grupo Barak</ion-title>
@@ -52,5 +52,6 @@
    <ion-title color="light">o</ion-title>
    <ion-title color="light">Ya eres un usuario?</ion-title>
    <ion-button color="danger" [routerLink]="['/inicio-sesion']" expand="block" >Iniciar Sesion</ion-button>
+
 </ion-card>
 </ion-content>

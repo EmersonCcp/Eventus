@@ -17,8 +17,13 @@ export class EventosService {
     return this.http.get(path);
   }
 
+  obtenerEvento(id: string){
+    const path = `${this.api}/find/${id}`;
+    return this.http.get(path);
+  }
+
   public filtrarEventoService(texto: string){
-    return this.http.get(this.api+`list-filter?q=${texto}`);
+    return this.http.get(this.api+`/list-filter?q=${texto}`);
   }
 
   eliminarEventoService(id: Observable<Evento[]>) {

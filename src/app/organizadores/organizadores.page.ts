@@ -28,13 +28,15 @@ export class OrganizadoresPage implements OnInit{
     this.listarOrganizadores();
 
    }
-
    ionViewWillEnter(){
     this.listarOrganizadores();
   }
+
+
   ir(){
     this.router.navigate(['/organizadores/organizador/0']);
   }
+
 
 
    listarOrganizadores(){
@@ -68,7 +70,7 @@ export class OrganizadoresPage implements OnInit{
       .subscribe(() => {
         this.organizadors.splice(i,1);
         slidingItem.close();
-        this.ionViewWillEnter();
+        this.listarOrganizadores();
         console.log('Organizador eliminado!');
       });
     }

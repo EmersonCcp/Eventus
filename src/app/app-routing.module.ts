@@ -29,8 +29,8 @@ const routes: Routes = [
     loadChildren: () => import('./eventos/buscar-eventos/buscar-eventos.module').then( m => m.BuscarEventosPageModule)
   },
   {
-    path: 'evento-detalle',
-    loadChildren: () => import('./eventos/evento-detalle/evento-detalle.module').then( m => m.EventoDetallePageModule)
+    path: 'eventos-principal/evento-detalle/:id',
+    loadChildren: () => import('./eventos/eventos-principal/evento-detalle/evento-detalle.module').then( m => m.EventoDetallePageModule)
   },
   {
     path: 'staff',
@@ -45,8 +45,8 @@ const routes: Routes = [
     loadChildren: () => import('./recuperar-pass/recuperar-pass.module').then( m => m.RecuperarPassPageModule)
   },
   {
-    path: 'crear-eventos',
-    loadChildren: () => import('./abmEventos/crear-evento/crear-evento.module').then( m => m.CrearEventoPageModule)
+    path: 'mis-eventos/crear-evento/:id',
+    loadChildren: () => import('./mis-eventos/crear-evento/crear-evento.module').then( m => m.CrearEventoPageModule)
   },
   {
     path: 'presentacion',
